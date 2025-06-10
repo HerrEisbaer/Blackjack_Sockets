@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="eingabe-container">
+        <div class="suiiii" id="suiiii">
+            <input type="number" placeholder="Raum ID" autocomplete="off" id="room-input">
+            <button id="eingabe">Eingabe</button>
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+        body {
+            background: rgb(102,126,234);
+            background: linear-gradient(90deg, rgba(102,126,234,1) 0%, rgba(118,75,162,1) 100%);
+            margin: 0;
+            padding: 0;
+            font-family: Poppins;
+            font-weight: 700;
+        }
+
+        .eingabe-container {
+            position: relative;
+            top: 0;
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .suiiii {
+            width: 300px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .suiiii input {
+            height: 40px;
+            border: 0.125rem solid rgb(204, 204, 204);
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: .2s;
+            text-align: center;
+            font-family: Poppins;
+            font-weight: 500;
+            color: rgb(51, 51, 51);
+            font-size: 1.2rem;
+            user-select: none;
+        }
+
+        .suiiii input:focus {
+            outline: none;
+            border: 0.125rem solid rgb(51, 51, 51);
+            transition: .2s;
+        }
+
+        .suiiii input::-webkit-outer-spin-button,
+        .suiiii input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        .suiiii button {
+            height: 40px;
+            background: rgb(51, 51, 51);
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 500;
+            transition: .05s;
+        }
+
+        .suiiii button:hover {
+            box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+            transform: translateY(4px);
+            transition: .05s;
+        }
+    </style>
+
+    <script>
+        const params = new URLSearchParams(window.location.search)
+
+        const roomid = params.get('roomid')
+
+        var richtigeroomid
+
+        const suiiii = document.getElementById("suiiii")
+        const eingabeinp = document.getElementById("room-input")
+        const eingabebtn = document.getElementById("eingabe")
+        eingabebtn.addEventListener('click', function() {
+            if (eingabeinp.value === '') {
+                alert("Du musst eine gültige ID eintragen...")
+            } else {
+                richtigeroomid = eingabeinp.value
+                changeToName()
+            }
+        })
+        
+        if (!(roomid == null || undefined)) {
+            richtigeroomid = roomid
+            changeToName()
+        }
+
+        function changeToName() {
+            var roomid = eingabeinp.value
+            suiiii.innerHTML = '<input type="text" placeholder="Name" autocomplete="off" id="name-input"><button id="name-eingabe">Eingabe</button>'
+            const nameinput = document.getElementById("name-input")
+            const nameeingabebtn = document.getElementById("name-eingabe")
+            nameeingabebtn.addEventListener('click', function() {
+                if (nameinput.value === '' || nameinput.value.includes(' ')) {
+                    alert("Du musst einen gültigen Namen eintragen...")
+                } else {
+                    window.location.href = `blackjack/?roomid=${richtigeroomid}&name=${nameinput.value}`
+                }
+            })
+        }
+    </script>
+</body>
+</html>

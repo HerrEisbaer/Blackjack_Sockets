@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="card/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="card/script.js" defer></script>
+    <script src="js/weh.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="eingabe-container">
+        <div class="suiiii" id="suiiii">
+            <button id="bereitbtn">Bereit</button>
+        </div>
+    </div>
+
+    <div class="dealer-test-container"></div>
+
+    <template id="dealer-test-tem">
+        <div>
+            <h2>Möchtest du Croupier sein?</h2>
+            <div class="dealer-test-button-container">
+                <button class="dealer-test-button-ja">Ja</button>
+                <button class="dealer-test-button-nein">Nein</button>
+            </div>
+        </div>
+    </template>
+
+    <template id="dealer-question">
+        <div class="wehtest">
+            <h2 data-question-header></h2>
+            <div class="dealer-test-button-container">
+                <button class="dealer-test-button" data-dealer-question-button1></button>
+                <button class="dealer-test-button" data-dealer-question-button2></button>
+            </div>
+        </div>
+    </template>
+    <!-- <template id="cardtemplate"> -->
+    <!-- </template> -->
+
+    <div class="dealercardholder" id="dealercardholder">
+        <!-- <div class="card" data-suit="spade" data-value="2"></div> -->
+    </div>
+
+    <div class="table" id="table">
+        
+    </div>
+
+    <div class="notify-container" id="notify-container"></div>
+
+    <template id="dealercarddingsda">
+        <div class="dealercardholder">
+            <div class="card" data-suit="spade" data-value="2"></div>
+        </div>
+    </template>
+
+    <template id="holdingfrage-template">
+        <div class="wehtest">
+            <h2 data-question-header></h2>
+            <div class="dealer-test-button-container">
+                <button class="dealer-test-button" data-dealer-question-button1></button>
+                <button class="dealer-test-button" data-dealer-question-button2></button>
+                <button class="dealer-test-button" data-dealer-question-button3></button>
+            </div>
+        </div>
+    </template>
+
+    <template id="cardplace-template">
+        <div class="cardplace" data-cardplacediv>
+            <div class="cardholder" data-cardholderdiv>
+                <p data-username></p>
+            </div>
+        </div>
+    </template>
+
+    <template id="cardtemplate">
+        <div class="card" data-suit="" data-value=""></div>
+    </template>
+
+    <template id="notify-template">
+        <div class="notify fadein">
+            <p data-notify-text></p>
+        </div>
+    </template>
+</body>
+</html>
